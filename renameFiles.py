@@ -3,13 +3,16 @@ import os
 
 def main():
 
-	folder = "/Users/patrickburke/Library/CloudStorage/OneDrive-EmoryUniversity/ECON496RW/processedCSVs/big/factpcrvital_chunks/"
+	inputFolder = '/home/gratt/repos/leetcode/neetcodeAll/'
+	outputFolder = '/home/gratt/repos/leetcode/neetcode/'
 
 	# loop thru each file
-	for file_name in os.listdir(folder):
-		old_path = folder + file_name
-		new_path = folder + file_name.replace("factpcrvital_chunks","")
-		os.rename(old_path, new_path)
+	for cat in os.listdir(inputFolder):
+		old_folder = inputFolder + cat
+		for file in os.listdir(old_folder):
+			old_path = old_folder + '/' + file
+			new_path = outputFolder + cat + '/' + file
+			os.rename(old_path, new_path)
 		
 if __name__ == '__main__':
 	main()
